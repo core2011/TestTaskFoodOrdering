@@ -25,17 +25,17 @@ public class Cuisine {
     @OneToMany(mappedBy = "cuisine", cascade = CascadeType.ALL)
     private List<Drink> drinks = new ArrayList<>();
 
-    public void addDessert(Dessert dessert){
+    public void addDessert(Dessert dessert) {
         dessert.setCuisine(this);
         desserts.add(dessert);
     }
 
-    public void addMain(Main main){
+    public void addMain(Main main) {
         main.setCuisine(this);
         mains.add(main);
     }
 
-    public void addDrink(Drink drink){
+    public void addDrink(Drink drink) {
         drink.setCuisine(this);
         drinks.add(drink);
     }

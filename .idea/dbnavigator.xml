@@ -56,6 +56,9 @@ drop table cuisines;]]></console>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="4e3efd5f-36ca-42f4-b95d-eab6d9263222" />
   </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="4e3efd5f-36ca-42f4-b95d-eab6d9263222" dataset="PUBLIC.MY_ORDER" active-filter-id="" />
+  </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
   </component>
@@ -85,7 +88,7 @@ drop table cuisines;]]></console>
           <deprecated-pwd value="dGVzdA==" />
         </database>
         <properties>
-          <auto-commit value="true" />
+          <auto-commit value="false" />
         </properties>
         <ssh-settings>
           <active value="false" />

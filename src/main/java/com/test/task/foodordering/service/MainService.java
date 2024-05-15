@@ -13,9 +13,9 @@ public class MainService {
     private final CuisineRepo cuisineRepo;
 
     @Transactional
-    public boolean addMain(int cuisineId, Main main){
+    public Main addMain(int cuisineId, Main main){
         var cuisine = cuisineRepo.findById(cuisineId).orElseThrow();
         cuisine.addMain(main);
-        return true;
+        return main;
     }
 }

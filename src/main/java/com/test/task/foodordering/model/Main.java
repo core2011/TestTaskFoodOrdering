@@ -2,10 +2,12 @@ package com.test.task.foodordering.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 
 @Data
 @Entity
 @Table(name = "main")
+@ToString
 public class Main{
 
     @Id

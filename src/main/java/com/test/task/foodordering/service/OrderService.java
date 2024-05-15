@@ -8,7 +8,6 @@ import com.test.task.foodordering.repository.DrinkRepo;
 import com.test.task.foodordering.repository.MainRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
