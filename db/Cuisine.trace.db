@@ -225,3 +225,127 @@ Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/IntelliJ_IDEA
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
 	... 55 more
+2024-05-15 17:27:17.426625+03:00 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "CUISINES" because "FKATKA3B5N9IY9TR7WT5CXKJFOE, FKDW3S9DGEDJ12RFMHI0YT5IJ0G, FK4LFFWPL3BHR9YKWP2QYBFC7P2" depends on it; SQL statement:
+drop table PUBLIC.CUISINES [90107-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:108)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:133)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:256)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:196)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:147)
+	at com.dbn.connection.jdbc.DBNStatement.lambda$executeUpdate$2(DBNStatement.java:173)
+	at com.dbn.connection.jdbc.DBNStatement.managed(DBNStatement.java:139)
+	at com.dbn.connection.jdbc.DBNStatement.executeUpdate(DBNStatement.java:173)
+	at com.dbn.database.common.statement.StatementExecutionProcessor.lambda$executeUpdate$3(StatementExecutionProcessor.java:283)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-05-15 18:44:50.437475+03:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/IntelliJ_IDEA_proj/TestTaskFoodOrdering/db/Cuisine.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.dbn.connection.Connector.lambda$connect$1(Connector.java:247)
+	at com.dbn.common.util.Classes.withClassLoader(Classes.java:18)
+	at com.dbn.connection.Connector.connect(Connector.java:247)
+	at com.dbn.connection.Connector.doConnect(Connector.java:179)
+	at com.dbn.connection.Connector.lambda$connect$0(Connector.java:90)
+	at com.dbn.common.thread.ThreadMonitor.surround(ThreadMonitor.java:93)
+	at com.dbn.common.thread.Timeout.lambda$call$0(Timeout.java:38)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/IntelliJ_IDEA_proj/TestTaskFoodOrdering/db/Cuisine.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 26 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/IntelliJ_IDEA_proj/TestTaskFoodOrdering/db/Cuisine.mv.db [2.2.224/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 20 more
+2024-05-15 19:08:49.768738+03:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/IntelliJ_IDEA_proj/TestTaskFoodOrdering/db/Cuisine.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.dbn.connection.Connector.lambda$connect$1(Connector.java:247)
+	at com.dbn.common.util.Classes.withClassLoader(Classes.java:18)
+	at com.dbn.connection.Connector.connect(Connector.java:247)
+	at com.dbn.connection.Connector.doConnect(Connector.java:179)
+	at com.dbn.connection.Connector.lambda$connect$0(Connector.java:90)
+	at com.dbn.common.thread.ThreadMonitor.surround(ThreadMonitor.java:93)
+	at com.dbn.common.thread.Timeout.lambda$call$0(Timeout.java:38)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/IntelliJ_IDEA_proj/TestTaskFoodOrdering/db/Cuisine.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 26 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/IntelliJ_IDEA_proj/TestTaskFoodOrdering/db/Cuisine.mv.db [2.2.224/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 20 more
+2024-05-15 20:22:52.055351+03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "MY_ORDER" because "FK3O9XYO3TJQN4F7GDTG8WSJJMA" depends on it; SQL statement:
+drop table PUBLIC.MY_ORDER [90107-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:108)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:133)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:256)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:196)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:147)
+	at com.dbn.connection.jdbc.DBNStatement.lambda$executeUpdate$2(DBNStatement.java:173)
+	at com.dbn.connection.jdbc.DBNStatement.managed(DBNStatement.java:139)
+	at com.dbn.connection.jdbc.DBNStatement.executeUpdate(DBNStatement.java:173)
+	at com.dbn.database.common.statement.StatementExecutionProcessor.lambda$executeUpdate$3(StatementExecutionProcessor.java:283)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2024-05-16 09:16:19.465081+03:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MY_ORDER" not found; SQL statement:
+select * from MY_ORDER [42102-224]
+2024-05-16 09:16:35.728730+03:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MY_ORDER" not found; SQL statement:
+select * from MY_ORDER [42102-224]

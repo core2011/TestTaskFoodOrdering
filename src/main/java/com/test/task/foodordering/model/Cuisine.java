@@ -1,7 +1,9 @@
 package com.test.task.foodordering.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,28 +18,10 @@ public class Cuisine {
     private int id;
     private String name;
 
-    @OneToMany(mappedBy = "cuisine", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "cuisine", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Main> mains = new ArrayList<>();
 
-    @OneToMany(mappedBy = "cuisine", cascade = CascadeType.ALL)
-    private List<Dessert> desserts = new ArrayList<>();
-
-    @OneToMany(mappedBy = "cuisine", cascade = CascadeType.ALL)
-    private List<Drink> drinks = new ArrayList<>();
-
-    public void addDessert(Dessert dessert) {
-        dessert.setCuisine(this);
-        desserts.add(dessert);
+    public Cuisine(String name) {
+        this.name = name;
     }
-
-    public void addMain(Main main) {
-        main.setCuisine(this);
-        mains.add(main);
-    }
-
-    public void addDrink(Drink drink) {
-        drink.setCuisine(this);
-        drinks.add(drink);
-    }
-
 }

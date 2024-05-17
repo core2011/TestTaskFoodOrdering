@@ -20,7 +20,7 @@
       <console name="Cuisine" type="STANDARD" schema="PUBLIC" session="Main"><![CDATA[select * from cuisines;
 select * from main;
 select * from DESSERT;
-select * from MY_ORDER;
+select * from CART;
 select * from drink;
 
 
@@ -41,23 +41,24 @@ select * from drink;
 
 
 drop table drink;
-drop table meal;
-drop table cuisines;]]></console>
+drop table MAIN;
+drop table CUISINES;
+drop table CART;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="4e3efd5f-36ca-42f4-b95d-eab6d9263222" object-ref="consoles/Cuisine" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="4e3efd5f-36ca-42f4-b95d-eab6d9263222" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="4e3efd5f-36ca-42f4-b95d-eab6d9263222" dataset="PUBLIC.MY_ORDER" active-filter-id="" />
+    <filter-actions connection-id="4e3efd5f-36ca-42f4-b95d-eab6d9263222" dataset="PUBLIC.MAIN" active-filter-id="" />
+    <filter-actions connection-id="4e3efd5f-36ca-42f4-b95d-eab6d9263222" dataset="PUBLIC.CUISINES" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
@@ -130,7 +131,7 @@ drop table cuisines;]]></console>
           <tcp-port-to value="4999" />
           <debugger-type value="ASK" />
         </debugger>
-        <object-filters hide-empty-schemas="false" hide-pseudo-columns="false" hide-audit-columns="false">
+        <object-filters hide-empty-schemas="true" hide-pseudo-columns="false" hide-audit-columns="false">
           <object-filters />
           <object-type-filter use-master-settings="true">
             <object-type name="SCHEMA" enabled="true" />

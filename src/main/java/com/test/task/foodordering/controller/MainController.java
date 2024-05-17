@@ -1,21 +1,17 @@
 package com.test.task.foodordering.controller;
 
-import com.test.task.foodordering.model.Main;
-import com.test.task.foodordering.service.MainService;
+import com.test.task.foodordering.repository.MainRepo;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.annotation.RequestScope;
+import org.springframework.web.context.annotation.SessionScope;
 
 @RestController
-@RequestMapping(value = "/addMain/{cuisineId}", method = RequestMethod.GET)
+@RequestMapping(value = "/main")
 @RequiredArgsConstructor
+@SessionScope
 public class MainController {
 
-    private final MainService mainService;
-
-    @PostMapping
-    public Main saveMain(
-            @PathVariable("cuisineId") int cuisineId,
-            @RequestBody Main main) {
-        return mainService.addMain(cuisineId, main);
-    }
+    private final MainRepo mainRepo;
 }
