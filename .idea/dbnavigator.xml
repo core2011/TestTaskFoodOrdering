@@ -19,8 +19,8 @@
     <connection id="4e3efd5f-36ca-42f4-b95d-eab6d9263222">
       <console name="Cuisine" type="STANDARD" schema="PUBLIC" session="Main"><![CDATA[select * from cuisines;
 select * from main;
-select * from DESSERT;
 select * from CART;
+select * from DESSERT;
 select * from drink;
 
 
@@ -50,7 +50,9 @@ drop table CART;]]></console>
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="4e3efd5f-36ca-42f4-b95d-eab6d9263222" object-ref="consoles/Cuisine" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="4e3efd5f-36ca-42f4-b95d-eab6d9263222" />
@@ -83,7 +85,7 @@ drop table CART;]]></console>
           <driver-library value="C:\Program Files (x86)\H2\bin\h2-2.2.224.jar" />
           <driver value="org.h2.Driver" />
           <url-type value="CUSTOM" />
-          <url value="jdbc:h2:file:D:/IntelliJ_IDEA_proj/TestTaskFoodOrdering/db/Cuisine" />
+          <url value="jdbc:h2:file:~/db/Cuisine" />
           <type value="USER_PASSWORD" />
           <user value="test" />
           <deprecated-pwd value="dGVzdA==" />

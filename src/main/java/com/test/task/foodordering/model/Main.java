@@ -9,13 +9,13 @@ import jakarta.persistence.Table;
 @Table(name = "main")
 public class Main extends Product {
 
-    public Main(String name, int price, Cuisine cuisine, Cart cart) {
+    public Main(String name, int price, Cuisine cuisine, Order order) {
         super(name, price, cuisine);
-        this.cart = cart;
+        this.order = order;
     }
 
     @ManyToOne
-    @JoinColumn(name = "cart_id")
-    private Cart cart;
+    @JoinColumn(name = "order_id")
+    private Order order;
 
 }
