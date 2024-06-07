@@ -33,7 +33,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "-------------------------------------------------------------------------"+
+        return "-------------------------------------------------------------------------" +
                 "\nOrder number - " + id
                 + "\nName main dish - " + main.getName()
                 + ", Cuisine from - " + main.getCuisine().getName()

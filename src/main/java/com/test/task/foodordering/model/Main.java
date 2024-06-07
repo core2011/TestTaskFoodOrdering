@@ -1,13 +1,9 @@
 package com.test.task.foodordering.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Setter
@@ -15,18 +11,11 @@ import java.util.List;
 @Table(name = "main")
 public class Main extends Product {
 
-    public Main(){
+    public Main() {
         super();
     }
 
     public Main(String name, int price, Cuisine cuisine) {
         super(name, price, cuisine);
     }
-
-
-
-
-//    @OneToMany(mappedBy = "main", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<Order> orders = new ArrayList<>();
-
 }

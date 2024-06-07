@@ -27,9 +27,4 @@ public abstract class Product {
     @ManyToOne
     @JoinColumn(name = "cuisine_id")
     private Cuisine cuisine;
-
-//    @ManyToOne
-//    @JoinColumn(name = "order_id")
-//    private Order order;
-
 }

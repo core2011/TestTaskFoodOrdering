@@ -45,7 +45,7 @@ public class FoodOrdering {
                 mainMexican3
         );
 
-        for (Main m : mainList){
+        for (Main m : mainList) {
             mainRepo.save(m);
         }
 
@@ -58,7 +58,7 @@ public class FoodOrdering {
                 dessertMexican1
         );
 
-        for (Dessert d : dessertList){
+        for (Dessert d : dessertList) {
             desertRepo.save(d);
         }
 
@@ -76,7 +76,7 @@ public class FoodOrdering {
                 drinkItalian2
         );
 
-        for (Drink d : drinks){
+        for (Drink d : drinks) {
             drinkRepo.save(d);
         }
 
@@ -105,7 +105,7 @@ public class FoodOrdering {
                 order3
         );
 
-        for (Order o : orders){
+        for (Order o : orders) {
             orderRepo.save(o);
         }
     }

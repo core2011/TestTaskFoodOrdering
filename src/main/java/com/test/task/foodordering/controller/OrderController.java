@@ -1,7 +1,5 @@
 package com.test.task.foodordering.controller;
 
-import com.test.task.foodordering.model.Dessert;
-import com.test.task.foodordering.model.Main;
 import com.test.task.foodordering.model.Order;
 import com.test.task.foodordering.repository.DessertRepo;
 import com.test.task.foodordering.repository.DrinkRepo;
@@ -44,8 +42,8 @@ public class OrderController {
 
         var drinkOptional = drinkRepo.findById(drinkId);
 
-        if (drinkOptional.isPresent()){
-            var drink= drinkOptional.get();
+        if (drinkOptional.isPresent()) {
+            var drink = drinkOptional.get();
             order.setDrink(drink);
         }
 
