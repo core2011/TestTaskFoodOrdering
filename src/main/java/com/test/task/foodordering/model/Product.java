@@ -1,24 +1,35 @@
 package com.test.task.foodordering.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @MappedSuperclass
-@RequiredArgsConstructor
 public abstract class Product {
+
+    public Product() {
+    }
+
+    public Product(String name, int price, Cuisine cuisine) {
+        this.name = name;
+        this.price = price;
+        this.cuisine = cuisine;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private final String name;
-    private final int price;
+    private String name;
+    private int price;
 
     @ManyToOne
     @JoinColumn(name = "cuisine_id")
-    private final Cuisine cuisine;
+    private Cuisine cuisine;
 
-
+//    @ManyToOne
+//    @JoinColumn(name = "order_id")
+//    private Order order;
 
 }

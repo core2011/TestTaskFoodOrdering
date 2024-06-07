@@ -19,9 +19,10 @@
     <connection id="4e3efd5f-36ca-42f4-b95d-eab6d9263222">
       <console name="Cuisine" type="STANDARD" schema="PUBLIC" session="Main"><![CDATA[select * from cuisines;
 select * from main;
-select * from CART;
-select * from DESSERT;
+select * from dessert;
 select * from drink;
+select * from orders;
+
 
 
 

@@ -1,18 +1,21 @@
 package com.test.task.foodordering.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @Entity
+@NoArgsConstructor
 @Table(name = "cuisines")
 public class Cuisine {
 
+    public Cuisine(String name) {
+        this.name = name;
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -21,7 +24,7 @@ public class Cuisine {
     @OneToMany(mappedBy = "cuisine", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Main> mains = new ArrayList<>();
 
-    public Cuisine(String name) {
-        this.name = name;
-    }
+    @OneToMany(mappedBy = "cuisine", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Dessert> desserts = new ArrayList<>();
+
 }

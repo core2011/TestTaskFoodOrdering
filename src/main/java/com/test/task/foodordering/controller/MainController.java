@@ -10,7 +10,6 @@ import org.springframework.web.context.annotation.SessionScope;
 @RestController
 @RequestMapping(value = "/main")
 @RequiredArgsConstructor
-@SessionScope
 public class MainController {
 
     private final MainRepo mainRepo;

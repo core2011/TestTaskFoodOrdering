@@ -1,21 +1,32 @@
 package com.test.task.foodordering.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "main")
 public class Main extends Product {
 
-    public Main(String name, int price, Cuisine cuisine, Order order) {
-        super(name, price, cuisine);
-        this.order = order;
+    public Main(){
+        super();
     }
 
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
+    public Main(String name, int price, Cuisine cuisine) {
+        super(name, price, cuisine);
+    }
+
+
+
+
+//    @OneToMany(mappedBy = "main", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<Order> orders = new ArrayList<>();
 
 }
