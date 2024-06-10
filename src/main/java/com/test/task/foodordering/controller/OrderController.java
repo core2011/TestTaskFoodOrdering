@@ -1,65 +1,56 @@
 package com.test.task.foodordering.controller;
 
 import com.test.task.foodordering.model.Order;
+import com.test.task.foodordering.repository.DessertRepo;
+import com.test.task.foodordering.repository.DrinkRepo;
+import com.test.task.foodordering.repository.MainRepo;
 import com.test.task.foodordering.repository.OrderRepo;
-import com.test.task.foodordering.service.OrderService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/order", method = RequestMethod.GET)
+@RequestMapping(value = "/order")
 @RequiredArgsConstructor
 public class OrderController {
 
     private final OrderRepo orderRepo;
-    private final OrderService orderService;
+    private final MainRepo mainRepo;
+    private final DessertRepo dessertRepo;
+    private final DrinkRepo drinkRepo;
 
-    private boolean drinkPresent;
-    private boolean icePresent;
-    private boolean lemonPresent;
-
-    @PostMapping
-    public String createOrder(
-            @RequestParam(name = "main") String mainId,
-            @RequestParam(name = "dessert") String dessertId,
-            @RequestParam(name = "drink", required = false, defaultValue = "0") String drinkId,
+    @GetMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Order createNewOrder(
+            @RequestParam(name = "main") Long mainId,
+            @RequestParam(name = "dessert") Long dessertId,
+            @RequestParam(name = "drink", required = false, defaultValue = "0") Long drinkId,
             @RequestParam(name = "ice", required = false, defaultValue = "0") String ice,
             @RequestParam(name = "lemon", required = false, defaultValue = "0") String lemon
     ) {
+
         Order order = new Order();
-        drinkPresent = !drinkId.equals("0");
-        icePresent = !ice.equals("0");
-        lemonPresent = !lemon.equals("0");
-        order.setMain(orderService.getMainById(mainId));
-        order.setDessert(orderService.getDessertById(dessertId));
-        order.setDrink(orderService.getDrinkById(drinkId));
-        order.setIse(ice);
+
+        var mainOptional = mainRepo.findById(mainId);
+        var main = mainOptional.orElseThrow();
+
+        var dessertOptional = dessertRepo.findById(dessertId);
+        var dessert = dessertOptional.orElseThrow();
+
+        order.setMain(main);
+        order.setDessert(dessert);
         order.setLemon(lemon);
-        int i = 0;
+        order.setIse(ice);
+
+        var drinkOptional = drinkRepo.findById(drinkId);
+
+        if (drinkOptional.isPresent()) {
+            var drink = drinkOptional.get();
+            order.setDrink(drink);
+        }
+
         orderRepo.save(order);
-        return orderToString(order);
+        System.out.println(order);
+        return order;
     }
-
-    private String orderToString(Order order) {
-        return "Order number - " + order.getId()
-                + "\nName main dish - " + order.getMain().getName()
-                + ", Cuisine from - " + order.getMain().getCuisine().getName()
-                + ", price - " + order.getMain().getPrice()
-                + "\nName dessert dish - " + order.getDessert().getName()
-                + ", Cuisine from - " + order.getDessert().getCuisine().getName()
-                + ", price - " + order.getDessert().getPrice()
-                + "\n" + (drinkPresent ? "name drink - " + order.getDrink().getName()
-                + ", Cuisine from - " + order.getDrink().getCuisine().getName()
-                + ", price - " + order.getDrink().getPrice() : "No drink ordered")
-                + "\n" + (icePresent ? "We've added piece of ice" : "No ice ordered")
-                + "\n" + (lemonPresent ? "We've added piece of lemon" : "No lemon ordered")
-                + "\nTotal price - " + calculateSumOrder(order);
-    }
-
-    private int calculateSumOrder(Order order) {
-        return order.getMain().getPrice()
-                + order.getDessert().getPrice()
-                + (drinkPresent ? order.getDrink().getPrice() : 0);
-    }
-
 }

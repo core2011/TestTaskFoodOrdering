@@ -1,21 +1,21 @@
 package com.test.task.foodordering.model;
-import jakarta.persistence.*;
-import lombok.Data;
 
-@Data
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "dessert")
-public class Dessert{
+public class Dessert extends Product {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    public Dessert() {
+        super();
+    }
 
-    private String name;
-    private int price;
-
-    @ManyToOne
-    @JoinColumn(name = "cuisine_id")
-    private Cuisine cuisine;
-
+    public Dessert(String name, int price, Cuisine cuisine) {
+        super(name, price, cuisine);
+    }
 }
