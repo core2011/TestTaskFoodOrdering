@@ -6,10 +6,11 @@ import com.test.task.foodordering.repository.DrinkRepo;
 import com.test.task.foodordering.repository.MainRepo;
 import com.test.task.foodordering.repository.OrderRepo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/order", method = RequestMethod.GET)
+@RequestMapping(value = "/order")
 @RequiredArgsConstructor
 public class OrderController {
 
@@ -18,7 +19,8 @@ public class OrderController {
     private final DessertRepo dessertRepo;
     private final DrinkRepo drinkRepo;
 
-    @PostMapping
+    @GetMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public Order createNewOrder(
             @RequestParam(name = "main") Long mainId,
             @RequestParam(name = "dessert") Long dessertId,

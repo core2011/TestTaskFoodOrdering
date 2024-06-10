@@ -51,9 +51,7 @@ drop table CART;]]></console>
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="4e3efd5f-36ca-42f4-b95d-eab6d9263222" object-ref="consoles/Cuisine" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="4e3efd5f-36ca-42f4-b95d-eab6d9263222" />
