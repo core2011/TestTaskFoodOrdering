@@ -19,7 +19,7 @@ public class OrderController {
     private final DessertRepo dessertRepo;
     private final DrinkRepo drinkRepo;
 
-    @GetMapping
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Order createNewOrder(
             @RequestParam(name = "main") Long mainId,

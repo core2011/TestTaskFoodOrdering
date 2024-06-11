@@ -13,9 +13,9 @@ public class CuisineController {
 
     private final CuisineRepo cuisineRepo;
 
-    @GetMapping
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Cuisine addNew(@RequestParam(name = "name") String cuisineName){
+    public Cuisine addNew(@RequestParam(name = "name") String cuisineName) {
         return cuisineRepo.save(new Cuisine(cuisineName));
     }
 

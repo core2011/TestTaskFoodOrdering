@@ -15,10 +15,6 @@ import java.util.List;
 @Table(name = "cuisines")
 public class Cuisine {
 
-    public Cuisine(String name) {
-        this.name = name;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -30,4 +26,7 @@ public class Cuisine {
     @OneToMany(mappedBy = "cuisine", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Dessert> desserts = new ArrayList<>();
 
+    public Cuisine(String name) {
+        this.name = name;
+    }
 }
